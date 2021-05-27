@@ -108,6 +108,7 @@ def SimpanganRataRata_tunggal(data=[3, 4, 5, 6, 7 ]):
 
 
 def SimpanganRataRata_kelompok(data = [[1, 3], [4, 6], [7, 9], [10, 12], [13, 15]], frekuensi = [4, 5, 6, 3, 2], isprint=False):
+    assert data.__len__() == frekuensi.__len__()
     x1 = np.array([median(range(x, y+1)) for x, y in data])
     fi_xi = np.array(frekuensi)*x1
     x_bar = fi_xi.sum() / sum(frekuensi)
@@ -129,6 +130,7 @@ def SimpanganRataRata_kelompok(data = [[1, 3], [4, 6], [7, 9], [10, 12], [13, 15
 
 
 def RAGAM_kelompok(data=[[19, 21], [22, 24], [25, 27], [28,30]], frekuensi=[9, 4, 5, 2], isprint=False):
+    assert data.__len__() == frekuensi.__len__()
     xi = np.array([median(range(x, y+1)) for x, y in data])
     fi_xi = np.array(frekuensi)*xi
     x_bar = fi_xi.sum()/sum(frekuensi)
@@ -160,6 +162,7 @@ def SimpanganBaku_tunggal(data=[3, 4, 5, 6, 7]):
 
 
 def SimpanganBaku_kelompok(data=[[19, 21], [22, 24], [25, 27], [28,30]], frekuensi=[9, 4, 5, 2], isprint=False):
+    assert data.__len__() == frekuensi.__len__()
     ragam = RAGAM_kelompok(data=data, frekuensi=frekuensi, isprint=isprint)
     hasil = round(root(ragam),2)
     if isprint:
